@@ -395,7 +395,7 @@ public class UserEndpoint extends AbstractRestController {
 				ResourceType resType = resourceModuleRegistry.getResourceModule(typeAuth.getKey())
 						.getResourceType();
 				ResourceTypeAuthorizationConfig authConfig = authorizationStore.loadResourceTypeAuthorizations(resType);
-				SimpleResourceTypeAuthorizationConfig newConfig = new SimpleResourceTypeAuthorizationConfig(authConfig);
+				SimpleResourceTypeAuthorizationConfig newConfig = (null!= authConfig)? new SimpleResourceTypeAuthorizationConfig(authConfig):new SimpleResourceTypeAuthorizationConfig();
 				SimpleResourceTypeAuthorization newAuth = new SimpleResourceTypeAuthorization(
 						typeAuth.getValue().getMaxResources(), typeAuth.getValue().getNiceLevel());
 
